@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مرحله ۴ - انتخاب شیشه</title>
+  <style>
+    body {
+      background-color: #1d1d1d;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .choice-button {
+      background-color: #ff1c1c;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .choice-button:hover {
+      background-color: #ff4444;
+    }
+    #timer {
+      font-size: 22px;
+      margin: 20px;
+      color: #00ff99;
+    }
+    #feedback {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+  <h1>مرحله ۴ - کدام شیشه امن است؟</h1>
+  <div id="timer">زمان باقی‌مانده: <span id="countdown">15</span> ثانیه</div>
+  <img src="img/ChatGPT Image Apr 19, 2025, 05_54_30 PM.png" width="200" style="border-radius:10px;">
+  <br>
+  <button class="choice-button" onclick="handleAnswer(false)">شیشه چپ</button>
+  <button class="choice-button" onclick="handleAnswer(true)">شیشه راست</button>
+  <div id="feedback">...</div>
+
+  <script>
+    let timeLeft = 15;
+    const timer = setInterval(() => {
+      timeLeft--;
+      document.getElementById("countdown").textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        document.getElementById("feedback").textContent = "⏰ زمان تمام شد! امتیاز: -5";
+        localStorage.setItem("squid_game_score_4", -5);
+        setTimeout(() => window.location.href = "emteaz+.html", 2000);
+      }
+    }, 1000);
+
+    function handleAnswer(correct) {
+      clearInterval(timer);
+      const score = correct ? 10 : -5;
+      const msg = correct ? "✅ آفرین! درست انتخاب کردی +10 امتیاز" : "❌ اشتباه بود! -5 امتیاز";
+      document.getElementById("feedback").textContent = msg;
+      localStorage.setItem("squid_game_score_4", score);
+      setTimeout(() => window.location.href = "emteaz+.html", 2000);
+    }
+  </script>
+</body>
+</html>

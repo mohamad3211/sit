@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>تماس با ما - محمد دیزاین</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --box-bg: #1e1e1e;
+      --primary-color: #2196f3;
+      --shadow-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body.light {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --box-bg: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Shabnam', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 30px;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 28px;
+    }
+
+    .contact-form {
+      margin-top: 30px;
+      padding: 20px;
+      background: var(--box-bg);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: right;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background-color: #2a2a2a;
+      color: #f1f1f1;
+    }
+
+    body.light input, body.light textarea {
+      background-color: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #42a5f5;
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .whatsapp { background-color: #25D366; }
+    .eitaa { background-color: #3CA0DC; }
+    .instagram { background-color: #E1306C; }
+
+    .social-link img {
+      width: 22px;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- دکمه تغییر حالت با ایموجی -->
+<button class="toggle-mode" onclick="toggleMode()" id="modeToggle">🌙</button>
+
+<h1>📩 تماس با ما</h1>
+
+<div class="contact-form">
+  <form>
+    <label>نام شما:</label>
+    <input type="text" name="name" placeholder="نام کامل">
+
+    <label>ایمیل:</label>
+    <input type="email" name="email" value="mohamad321166@gmail.com">
+
+    <label>پیام:</label>
+    <textarea name="message" rows="5" placeholder="متن پیام شما..."></textarea>
+
+    <button type="submit">ارسال</button>
+  </form>
+
+  <div class="social-buttons">
+    <a href="https://wa.me/989928495610?text=سلام، از طریق سایت با شما تماس می‌گیرم." target="_blank" class="social-link whatsapp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> واتساپ
+    </a>
+    <a href="https://eitaa.com/09928495610" target="_blank" class="social-link eitaa">
+      <img src="https://eitaa.com/favicon.ico" alt="Eitaa"> ایتا
+    </a>
+    <a href="https://instagram.com/demo_profile" target="_blank" class="social-link instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"> اینستاگرام
+    </a>
+  </div>
+</div>
+
+<script>
+  function toggleMode() {
+    document.body.classList.toggle('light');
+    const btn = document.getElementById('modeToggle');
+    btn.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+  }
+</script>
+
+</body>
+</html>

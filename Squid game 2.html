@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مرحله ۲ - ورود اطلاعات</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .form-box {
+      background-color: #222;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #333;
+      border: 1px solid #ff1c1c;
+      border-radius: 10px;
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff1c1c;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box" dir="rtl">
+    <h2>ورود اطلاعات</h2>
+    <input id="username" type="text" placeholder="نام شما...">
+    <input id="age" type="number" placeholder="سن شما...">
+    <button onclick="saveData()">ادامه</button>
+  </div>
+
+  <script>
+    function saveData() {
+      const name = document.getElementById("username").value;
+      const age = document.getElementById("age").value;
+      localStorage.setItem("squid_game_name", name);
+      localStorage.setItem("squid_game_age", age);
+      window.location.href = "Squid game 3.html";
+    }
+  </script>
+</body>
+</html>

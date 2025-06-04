@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نتیجه نهایی - رتبه‌بندی</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Vazirmatn', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      background-color: #222;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff1c1c66;
+      width: 80%;
+      max-width: 500px;
+    }
+    .score {
+      font-size: 36px;
+      color: #00ff99;
+      margin: 20px 0;
+    }
+    .rank {
+      font-size: 28px;
+      color: #ffcc00;
+    }
+    .player-name {
+      margin-top: 15px;
+      font-size: 22px;
+      color: #ff8080;
+    }
+    .answer-list {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🎯 نتیجه نهایی شما</h1>
+    <div class="player-name" id="player">نام شما: ...</div>
+    <div class="score">امتیاز کلی: <span id="score">...</span></div>
+    <div class="rank">رتبه: <span id="rank">...</span></div>
+    <div class="answer-list">
+      ✅ پاسخ مرحله ۳: <span id="answer3">...</span><br>
+      ✅ پاسخ مرحله ۴: <span id="answer4">...</span>
+    </div>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("squid_game_name") || "ناشناس";
+    document.getElementById("player").textContent = `نام شما: ${name}`;
+
+    const score2 = parseInt(localStorage.getItem("squid_game_score_2")) || 0;
+    const score3 = parseInt(localStorage.getItem("squid_game_score_3")) || 0;
+    const score4 = parseInt(localStorage.getItem("squid_game_score_4")) || 0;
+    const totalScore = score2 + score3 + score4;
+    document.getElementById("score").textContent = totalScore;
+
+    let rank = "";
+    if (totalScore >= 25) {
+      rank = "👑 اسطوره‌ای";
+    } else if (totalScore >= 15) {
+      rank = "🟢 حرفه‌ای";
+    } else if (totalScore >= 0) {
+      rank = "🟡 معمولی";
+    } else {
+      rank = "🔴 نیاز به تمرین";
+    }
+    document.getElementById("rank").textContent = rank;
+
+    const answer3 = localStorage.getItem("squid_game_answer_3") || "نامشخص";
+    const answer4 = parseInt(localStorage.getItem("squid_game_score_4")) >= 0 ? "درست" : "اشتباه";
+    document.getElementById("answer3").textContent = answer3;
+    document.getElementById("answer4").textContent = answer4;
+  </script>
+</body>
+</html>
